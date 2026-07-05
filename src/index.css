@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Premium Light Theme: Soft Slate, Indigo, and Cool Neutral Grays */
+  --bg-primary: #F8FAFC;        /* Soft slate-light background */
+  --bg-secondary: #FFFFFF;      /* Pristine white */
+  --bg-sidebar: #F1F5F9;        /* Light cool-slate sidebar */
+  --bg-card: #FFFFFF;           /* Pristine white card */
+  --color-primary: #6366F1;     /* Elegant Indigo */
+  --color-secondary: #0EA5E9;   /* Slate/Cyan blue */
+  --color-highlight: #A855F7;   /* Soft purple highlight */
+  --color-success: #10B981;     /* Cool Mint Green */
+  --color-error: #EF4444;       /* Balanced Coral Red */
+  --text-primary: #0F172A;      /* Rich Slate 900 text */
+  --text-secondary: #475569;    /* Balanced Slate 600 text */
+  --border-color: #E2E8F0;      /* Clean slate border line */
+  --shadow-color: rgba(99, 102, 241, 0.03);
+}
+
+.dark {
+  /* Premium Dark Theme: Deep Midnight Slate, Soft Lavender, Indigo, and Cyan accents */
+  --bg-primary: #0B0F19;        /* Deep slate-midnight blue background */
+  --bg-secondary: #111827;      /* Rich slate dark secondary */
+  --bg-sidebar: #171E2E;        /* Deep navy slate sidebar */
+  --bg-card: #1E293B;           /* Slate chamber background */
+  --color-primary: #818CF8;     /* Softer glowing Indigo */
+  --color-secondary: #22D3EE;   /* Soft Cyan accent */
+  --color-highlight: #C084FC;   /* Soft Lavender/Purple */
+  --color-success: #34D399;     /* Softer green success */
+  --color-error: #F87171;       /* Soft coral red error */
+  --text-primary: #F1F5F9;      /* Luminescent Slate 100 text */
+  --text-secondary: #94A3B8;    /* Steel slate-gray 400 text */
+  --border-color: #1E293B;      /* Sophisticated slate border line */
+  --shadow-color: rgba(99, 102, 241, 0.06);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sora: "Sora", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom palette colors mapped to CSS variables */
+  --color-brand-bg: var(--bg-primary);
+  --color-brand-bg-sec: var(--bg-secondary);
+  --color-brand-sidebar: var(--bg-sidebar);
+  --color-brand-card: var(--bg-card);
+  --color-brand-primary: var(--color-primary);
+  --color-brand-secondary: var(--color-secondary);
+  --color-brand-highlight: var(--color-highlight);
+  --color-brand-success: var(--color-success);
+  --color-brand-error: var(--color-error);
+  --color-brand-text: var(--text-primary);
+  --color-brand-text-sec: var(--text-secondary);
+  --color-brand-border: var(--border-color);
+}
+
+/* Base custom styles to enable smooth scrolling and glassmorphic defaults */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.4);
+}
+
+/* Glassmorphism utility with glowing properties */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dark .glass {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid overlay background style for canvas */
+.canvas-grid {
+  background-color: #ffffff !important;
+  background-size: 32px 32px;
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.1) 1.2px, transparent 1.2px) !important;
+}
+
+.dark .canvas-grid {
+  background-color: #ffffff !important;
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.1) 1.2px, transparent 1.2px) !important;
+}
+
+/* Aurora background glow */
+.aurora-blur {
+  background: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.05), rgba(16, 185, 129, 0.03), rgba(100, 116, 139, 0.04), transparent 70%);
+  filter: blur(120px);
+}
+
+.dark .aurora-blur {
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.06), rgba(20, 184, 166, 0.03), rgba(148, 163, 184, 0.04), transparent 70%);
+  filter: blur(120px);
+}
+
+/* Hide cursor on laser pointer active */
+.cursor-laser {
+  cursor: none !important;
+}
+
+/* Ripple button animations */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smooth global transitions specifically during theme changes without interrupting general layout speed */
+.theme-transitioning,
+.theme-transitioning * {
+  transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+              fill 350ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 350ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 350ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 350ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Redesigned Wordmark Gradient Animation */
+@keyframes wordmark-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-wordmark-gradient {
+  animation: wordmark-gradient-shift 4.5s ease infinite;
+}
+
+/* Premium Interactive Feature-Card (Highly Visible Card Hover for Light Theme) */
+.feature-card {
+  position: relative;
+  transition: transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1),
+              background-color 300ms cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 300ms cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.02), 
+              0 2px 6px -1px rgba(15, 23, 42, 0.01);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Premium blurred background glow that simulates a shifting light source underneath */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 125%,
+    rgba(99, 102, 241, 0.16),
+    rgba(139, 92, 246, 0.04) 45%,
+    transparent 80%
+  );
+  filter: blur(24px);
+  z-index: -10;
+  opacity: 0;
+  transform: scale(0.9) translateY(4px);
+  transition: opacity 450ms cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 450ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  pointer-events: none;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+  transform: scale(1.15) translateY(12px); /* Shift light source position slightly downward & outward on hover */
+}
+
+.feature-card:hover {
+  transform: translateY(-5px) scale(1.025);
+  background: rgba(255, 255, 255, 0.98) !important; /* Noticeably increased light theme intensity */
+  border-color: rgba(99, 102, 241, 0.45) !important; /* Subtle colored border glow matching indigo brand */
+  box-shadow: 0 24px 48px -12px rgba(99, 102, 241, 0.16),
+              0 0 20px 2px rgba(99, 102, 241, 0.04),
+              0 1px 3px 0 rgba(99, 102, 241, 0.05); /* Rich elevated drop shadow + brand glow */
+}
+
+/* Dark Mode Overrides for Premium Interactive Cards */
+.dark .feature-card {
+  background: rgba(17, 24, 39, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark .feature-card::before {
+  background: radial-gradient(
+    circle at 50% 125%,
+    rgba(129, 140, 248, 0.28),
+    rgba(167, 139, 250, 0.06) 45%,
+    transparent 80%
+  );
+  filter: blur(28px);
+}
+
+.dark .feature-card:hover::before {
+  transform: scale(1.18) translateY(14px); /* Luminescent shift for dark modes */
+}
+
+.dark .feature-card:hover {
+  transform: translateY(-5px) scale(1.025);
+  background: rgba(17, 24, 39, 0.88) !important; /* Premium deep background intensity */
+  border-color: rgba(129, 140, 248, 0.45) !important; /* Luminescent border glow matching dark indigo */
+  box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.65),
+              0 0 25px 3px rgba(129, 140, 248, 0.12); /* Deep shadow + glowing indigo backlighting */
+}
+
+/* Custom responsive whiteboard toolbar and canvas padding styles */
+@media (min-width: 1280px) and (min-height: 800px) {
+  /* Desktop Mode with Vertical Sidebar */
+  .whiteboard-sidebar {
+    position: absolute !important;
+    left: 1rem !important; /* left-4 */
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    bottom: auto !important;
+    flex-direction: column !important;
+    width: auto !important;
+    border-radius: 1rem !important; /* rounded-2xl */
+    border: 1px solid rgba(226, 232, 240, 0.85) !important; /* md:border border-brand-border/85 */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important; /* md:shadow-xl */
+  }
+  
+  .dark .whiteboard-sidebar {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .whiteboard-canvas-container {
+    padding-top: 0px !important;
+  }
+}
+
+@media (max-width: 1279px) or (max-height: 799px) {
+  /* Small Desktop / Small Laptop / Tablet / Mobile (Horizontal Toolbar) */
+  .whiteboard-sidebar {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    bottom: auto !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    border-radius: 0px !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85) !important; /* border-b border-brand-border/85 */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important; /* shadow-md */
+    overflow-x: auto !important;
+  }
+  
+  .dark .whiteboard-sidebar {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .whiteboard-sidebar::-webkit-scrollbar {
+    display: none !important; /* Hide scrollbars for chrome/safari */
+  }
+  
+  .whiteboard-sidebar {
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;  /* Firefox */
+  }
+
+  .whiteboard-canvas-container {
+    padding-top: 56px !important; /* h-14 equivalent to clear the horizontal toolbar */
+    touch-action: none !important;
+  }
+}
+
+.whiteboard-canvas-container {
+  touch-action: none !important;
+}
+
+/* Custom Soft Tint styling overrides */
+.color-option-soft-tint {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-width: 1px !important;
+}
+
+.color-option-soft-tint:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+}
+
+
+

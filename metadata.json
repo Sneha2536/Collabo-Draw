@@ -1,0 +1,6 @@
+{
+  "name": "CollaboDraw",
+  "description": "Real-Time Collaborative Whiteboard for Teams, Students and Professionals. Create, collaborate, and draw on infinite whiteboards with live synchronization, presence tracking, cursors, and real-time chat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

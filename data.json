@@ -1,0 +1,168 @@
+{
+  "users": [
+    {
+      "uid": "demo-user-1",
+      "email": "sneharajak2006@gmail.com",
+      "displayName": "Sneha Rajak",
+      "photoURL": "https://api.dicebear.com/7.x/adventurer/svg?seed=Sneha",
+      "bio": "Lead Architect & Designer"
+    },
+    {
+      "uid": "demo-user-2",
+      "email": "collaborator@collabodraw.com",
+      "displayName": "Alex Rivers",
+      "photoURL": "https://api.dicebear.com/7.x/adventurer/svg?seed=Alex",
+      "bio": "Product Manager"
+    }
+  ],
+  "boards": [
+    {
+      "id": "demo-board",
+      "name": "Hackathon Project Pitch Whiteboard",
+      "ownerId": "demo-user-1",
+      "ownerName": "Sneha Rajak",
+      "ownerEmail": "sneharajak2006@gmail.com",
+      "createdTime": 1783216868418,
+      "lastModifiedTime": 1783223468418,
+      "collaborators": [
+        {
+          "userId": "demo-user-1",
+          "name": "Sneha Rajak",
+          "email": "sneharajak2006@gmail.com",
+          "role": "owner"
+        },
+        {
+          "userId": "demo-user-2",
+          "name": "Alex Rivers",
+          "email": "collaborator@collabodraw.com",
+          "role": "editor"
+        }
+      ],
+      "pages": [
+        "demo-page-1"
+      ],
+      "activePageId": "demo-page-1"
+    }
+  ],
+  "pages": {
+    "demo-page-1": {
+      "id": "demo-page-1",
+      "boardId": "demo-board",
+      "name": "Brainstorm Page 1",
+      "order": 1,
+      "objects": [
+        {
+          "id": "obj-1",
+          "type": "rect",
+          "x": 200,
+          "y": 150,
+          "width": 300,
+          "height": 180,
+          "stroke": "#6366f1",
+          "strokeWidth": 4,
+          "fill": "#818cf81a",
+          "opacity": 1,
+          "dashed": false,
+          "rotation": 0,
+          "creatorId": "demo-user-1",
+          "creatorName": "Sneha Rajak",
+          "lastModified": 1783224068418
+        },
+        {
+          "id": "obj-2",
+          "type": "text",
+          "x": 230,
+          "y": 200,
+          "width": 240,
+          "height": 60,
+          "stroke": "#ffffff",
+          "strokeWidth": 0,
+          "fill": "transparent",
+          "opacity": 1,
+          "dashed": false,
+          "text": "CollaboDraw Architecture",
+          "fontSize": 22,
+          "fontFamily": "Inter",
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "align": "center",
+          "rotation": 0,
+          "creatorId": "demo-user-1",
+          "creatorName": "Sneha Rajak",
+          "lastModified": 1783224068418
+        },
+        {
+          "id": "obj-3",
+          "type": "sticky",
+          "x": 550,
+          "y": 130,
+          "width": 180,
+          "height": 180,
+          "stroke": "#eab308",
+          "strokeWidth": 1,
+          "fill": "#fef08a",
+          "opacity": 0.95,
+          "dashed": false,
+          "text": "Add custom client-side SSE sync to allow full multi-user testing!",
+          "fontSize": 14,
+          "fontFamily": "Inter",
+          "rotation": 5,
+          "stickyColor": "#fef08a",
+          "creatorId": "demo-user-2",
+          "creatorName": "Alex Rivers",
+          "lastModified": 1783224068418
+        },
+        {
+          "id": "obj-4",
+          "type": "arrow",
+          "x": 420,
+          "y": 350,
+          "width": 120,
+          "height": 100,
+          "stroke": "#10b981",
+          "strokeWidth": 3,
+          "fill": "#10b981",
+          "opacity": 1,
+          "dashed": false,
+          "rotation": 0,
+          "creatorId": "demo-user-1",
+          "creatorName": "Sneha Rajak",
+          "lastModified": 1783224068418
+        }
+      ]
+    }
+  },
+  "chats": {
+    "demo-board": [
+      {
+        "id": "msg-1",
+        "boardId": "demo-board",
+        "userId": "demo-user-2",
+        "userName": "Alex Rivers",
+        "userColor": "#10b981",
+        "text": "Welcome to our collaborative session! SSE synchronization is running perfectly.",
+        "timestamp": 1783223768418
+      },
+      {
+        "id": "msg-2",
+        "boardId": "demo-board",
+        "userId": "demo-user-1",
+        "userName": "Sneha Rajak",
+        "userColor": "#6366f1",
+        "text": "Awesome, let’s design some diagrams here!",
+        "timestamp": 1783223918418
+      }
+    ]
+  },
+  "history": {
+    "demo-board": [
+      {
+        "timestamp": 1783220468418,
+        "editorName": "Sneha Rajak",
+        "description": "Initial creation & outline setup",
+        "objectsSnapshot": []
+      }
+    ]
+  }
+}
